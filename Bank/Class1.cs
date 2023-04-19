@@ -17,6 +17,10 @@ namespace Bank
 
         private bool m_frozen = false;
 
+        // class under test  
+        public const string DebitAmountExceedsBalanceMessage = "Debit amount exceeds balance";
+        public const string DebitAmountLessThanZeroMessage = "Debit amount less than zero";
+
         private BankAccount()
         {
         }
@@ -39,12 +43,13 @@ namespace Bank
 
         public void Debit(double amount)
         {
+
             if (m_frozen)
             {
                 throw new Exception("Account frozen");
             }
 
-            if (amount > m_balance)
+            /**if (amount > m_balance)
             {
                 throw new ArgumentOutOfRangeException("amount");
             }
@@ -52,6 +57,16 @@ namespace Bank
             if (amount < 0)
             {
                 throw new ArgumentOutOfRangeException("amount");
+            }**/ 
+
+            if (amount > m_balance)
+            {
+                throw new ArgumentOutOfRangeException("amount", amount, DebitAmountExceedsBalanceMessage);
+            }
+
+            if (amount < 0)
+            {
+                throw new ArgumentOutOfRangeException("amount", amount, DebitAmountLessThanZeroMessage);
             }
 
             m_balance -= amount;  
