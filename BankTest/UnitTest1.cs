@@ -54,14 +54,7 @@ namespace BankTest
 
             // assert is handled by ExpectedException  
             double b = account.Balance;
-            //Assert.(debitAmount, b, 0.001, "");
-
-            if (b < debitAmount)
-            {
-                //throw new ArgumentOutOfRangeException();
-
-            }
-            //function that checks for an ArgumentOutOfRange exception when the debit amount is larger than the balance.
+            Assert.IsTrue(b < debitAmount, "Debit amount is larger than the balance");
 
         }
     }
