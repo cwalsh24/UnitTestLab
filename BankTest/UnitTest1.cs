@@ -25,7 +25,7 @@ namespace BankTest
         }
 
         //unit test method  
-        /**[TestMethod]
+        [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Debit_WhenAmountIsLessThanZero_ShouldThrowArgumentOutOfRange()
         {
@@ -38,7 +38,9 @@ namespace BankTest
             account.Debit(debitAmount);
 
             // assert is handled by ExpectedException  
-        }**/ 
+            //double b = account.;
+            Assert.IsTrue(debitAmount < 0, "Debit amount is less than zero");
+        }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -55,7 +57,6 @@ namespace BankTest
             // assert is handled by ExpectedException  
             double b = account.Balance;
             Assert.IsTrue(b < debitAmount, "Debit amount is larger than the balance");
-
         }
     }
 }
