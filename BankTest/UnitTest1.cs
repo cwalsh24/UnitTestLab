@@ -38,8 +38,6 @@ namespace BankTest
             account.Debit(debitAmount);
 
             // assert is handled by ExpectedException  
-            //double b = account.;
-            Assert.IsTrue(debitAmount < 0, "Debit amount is less than zero");
         }
 
         [TestMethod]
