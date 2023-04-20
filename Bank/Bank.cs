@@ -1,5 +1,5 @@
 ﻿/**
- * @file Class1.cs
+ * @file Bank.cs
  * @author Connor Walsh
  * @date 2023-4-20
  * @brief Class Library for a Banking system 

@@ -4,7 +4,7 @@
  * @date 2023-4-20
  * @brief UnitTest1 Unit Test Project  
  * 
- * This Unit Test Project contains all of the the test methods for the Class1.cs (bank) class library
+ * This Unit Test Project contains all of the the test methods for the Bank.cs class library
  */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
