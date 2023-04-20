@@ -95,23 +95,14 @@ namespace BankTest
         }
 
         
-        /**[TestMethod]
+        [TestMethod]
         public void Credit_UpdateAccount()
         {
             double beginningBalance = 11.99;
             double creditAmount = 15;
             BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
 
-            try
-            {
-                account.Debit(creditAmount);
-            }
-            catch (ArgumentOutOfRangeException e)
-            {
-                StringAssert.Contains(e.Message, BankAccount.CreditAccountHasNotBeenUpdated);
-                return;
-            }
-            Assert.Fail("No exception was thrown.");
-        }**/
+            account.Credit(creditAmount);
+        }
     }
 }
