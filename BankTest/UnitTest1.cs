@@ -1,4 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿/**
+ * @file UnitTest1.cs
+ * @author Connor Walsh
+ * @date 2023-4-20
+ * @brief UnitTest1 Unit Test Project  
+ * 
+ * This Unit Test Project contains all of the the test methods for the Class1.cs (bank) class library
+ */
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Bank;
 

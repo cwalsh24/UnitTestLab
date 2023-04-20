@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * @file Class1.cs
+ * @author Connor Walsh
+ * @date 2023-4-20
+ * @brief Class Library for a Banking system 
+ * 
+ * This class library contains a bank class along with its methods and their implementation. 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
