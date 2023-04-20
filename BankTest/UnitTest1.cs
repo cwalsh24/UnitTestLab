@@ -48,7 +48,7 @@ namespace BankTest
         public void Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange()
         {
             double beginningBalance = 11.99;
-            double debitAmount = 15;//-100.00; 
+            double debitAmount = 15;
             BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
 
             try
@@ -64,6 +64,7 @@ namespace BankTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(Exception))]
         public void Credit_AccountHasBeenFrozen_ShouldThrowException()
         {
             double beginningBalance = 10;
@@ -71,18 +72,7 @@ namespace BankTest
             BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
             account.ToggleFreeze();
 
-            //account.Credit(creditAmount);
-            //Assert.isTrue(account.m_frozen);
-            try
-            {
-                account.Credit(creditAmount);
-            }
-            catch (ArgumentOutOfRangeException e)
-            {
-                StringAssert.Contains(e.Message, BankAccount.AccountFrozenMessage);
-                return;
-            }
-            Assert.Fail("No exception was thrown.");
+            account.Credit(creditAmount);
         }
 
         [TestMethod]
