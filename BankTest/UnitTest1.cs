@@ -46,7 +46,7 @@ namespace BankTest
         {
             // arrange  
             double beginningBalance = 11.99;
-            double debitAmount = 5;//-100.00; //fails on greater than balance and negative, passes on less than balance 
+            double debitAmount = 5;//-100.00; 
             BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
 
             // act  
