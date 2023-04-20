@@ -21,6 +21,10 @@ namespace Bank
         public const string DebitAmountExceedsBalanceMessage = "Debit amount exceeds balance";
         public const string DebitAmountLessThanZeroMessage = "Debit amount less than zero";
 
+        public const string AccountFrozenMessage = "Account has been frozen";
+        public const string CreditAmountLessThanZeroMessage = "Credit amount less than zero";
+        //public const string DebitAmountLessThanZeroMessage = "Debit amount less than zero";
+
         private BankAccount()
         {
         }
@@ -49,16 +53,6 @@ namespace Bank
                 throw new Exception("Account frozen");
             }
 
-            /**if (amount > m_balance)
-            {
-                throw new ArgumentOutOfRangeException("amount");
-            }
-
-            if (amount < 0)
-            {
-                throw new ArgumentOutOfRangeException("amount");
-            }**/ 
-
             if (amount > m_balance)
             {
                 throw new ArgumentOutOfRangeException("amount", amount, DebitAmountExceedsBalanceMessage);
@@ -76,12 +70,12 @@ namespace Bank
         {
             if (m_frozen)
             {
-                throw new Exception("Account frozen");
+                throw new ArgumentOutOfRangeException("amount", amount, AccountFrozenMessage); 
             }
 
             if (amount < 0)
             {
-                throw new ArgumentOutOfRangeException("amount");
+                throw new ArgumentOutOfRangeException("amount", amount, CreditAmountLessThanZeroMessage);
             }
 
             m_balance += amount;
