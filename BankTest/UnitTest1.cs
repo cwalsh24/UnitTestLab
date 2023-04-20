@@ -46,7 +46,7 @@ namespace BankTest
         {
             // arrange  
             double beginningBalance = 11.99;
-            double debitAmount = -100.00;
+            double debitAmount = 5;//-100.00; //fails on greater than balance and negative, passes on less than balance 
             BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
 
             // act  
@@ -61,9 +61,10 @@ namespace BankTest
             }
             catch (ArgumentOutOfRangeException e)
             {
-                // assert  
                 StringAssert.Contains(e.Message, BankAccount.DebitAmountExceedsBalanceMessage);
+                return;
             }
+            Assert.Fail("No exception was thrown.");
         }
     }
 }
