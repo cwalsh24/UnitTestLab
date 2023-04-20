@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Bank
 {
@@ -23,7 +24,7 @@ namespace Bank
 
         public const string AccountFrozenMessage = "Account has been frozen";
         public const string CreditAmountLessThanZeroMessage = "Credit amount less than zero";
-        //public const string DebitAmountLessThanZeroMessage = "Debit amount less than zero";
+        //public const string CreditAccountHasNotBeenUpdated = "Credit Account Has Not Been Updated";
 
         private BankAccount()
         {
@@ -64,12 +65,15 @@ namespace Bank
             }
 
             m_balance -= amount;  
+
+
         }
 
         public void Credit(double amount)
         {
             if (m_frozen)
             {
+                //throw new Exception("Account frozen");
                 throw new ArgumentOutOfRangeException("amount", amount, AccountFrozenMessage); 
             }
 
@@ -78,7 +82,14 @@ namespace Bank
                 throw new ArgumentOutOfRangeException("amount", amount, CreditAmountLessThanZeroMessage);
             }
 
+            //double test = m_balance;
+
             m_balance += amount;
+
+            /**if (amount != m_balance - test)
+            {
+                throw new ArgumentOutOfRangeException("amount", amount, CreditAccountHasNotBeenUpdated);
+            }**/
         }
 
         private void FreezeAccount()
